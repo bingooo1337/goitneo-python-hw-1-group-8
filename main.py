@@ -9,10 +9,20 @@ def add_contact(args, contacts):
     contacts[name] = phone
     return "Contact added."
 
+
 def change_contact(args, contacts):
     name, phone = args
     contacts[name] = phone
     return "Contact updated."
+
+
+def get_contact(args, contacts):
+    name = args[0]
+    phone = contacts.get(name, None)
+    if (phone == None):
+        return "No such contact."
+    else:
+        return phone
 
 
 def main():
@@ -31,6 +41,8 @@ def main():
             print(add_contact(args, contacts))
         elif command == "change":
             print(change_contact(args, contacts))
+        elif command == "phone":
+            print(get_contact(args, contacts))
         else:
             print("Invalid command.")
 
