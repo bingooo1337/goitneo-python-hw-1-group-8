@@ -16,13 +16,23 @@ def change_contact(args, contacts):
     return "Contact updated."
 
 
-def get_contact(args, contacts):
+def show_phone(args, contacts):
     name = args[0]
     phone = contacts.get(name, None)
     if (phone == None):
         return "No such contact."
     else:
         return phone
+
+
+def show_all(contacts):
+    if (len(contacts) == 0):
+        return "No contacts."
+    else:
+        res = ""
+        for name, phone in contacts.items():
+            res += f"{name} {phone}\n"
+        return res.strip()
 
 
 def main():
@@ -42,7 +52,9 @@ def main():
         elif command == "change":
             print(change_contact(args, contacts))
         elif command == "phone":
-            print(get_contact(args, contacts))
+            print(show_phone(args, contacts))
+        elif command == "all":
+            print(show_all(contacts))
         else:
             print("Invalid command.")
 
