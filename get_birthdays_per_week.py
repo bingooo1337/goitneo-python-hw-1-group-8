@@ -10,8 +10,10 @@ users = [
     {"name": "Birthday_user", "birthday": datetime(2024, 3, 1)},
     {"name": "Birthday_user_same_day", "birthday": datetime(2024, 3, 1)},
     {"name": "Birthday_user_another_day", "birthday": datetime(2024, 2, 28)},
-    {"name": "Birthday_user_this_week_but_not_congratulate", "birthday": datetime(2024, 3, 2)},
+    {"name": "Birthday_user_this_week_but_not_congratulate",
+        "birthday": datetime(2024, 3, 2)},
 ]
+
 
 def get_congratulation_day(today, birthday):
     birthday_this_year = birthday.replace(year=today.year)
@@ -33,7 +35,7 @@ def get_congratulation_day(today, birthday):
 
 def get_users_to_congratulate(users):
     start = datetime.now().date()
-    end = (start + timedelta(days=5))
+    end = (start + timedelta(days=6))
 
     users_to_congratulate = defaultdict(list)
     for user in users:
